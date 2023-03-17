@@ -23,7 +23,12 @@ class UtilisateurController extends AbstractController
         $this->userRepo = $userRepo;
     }
 
-
+            #[Route('/logout', name: 'logout', methods: ["GET"]) ]
+            public function logout()
+            {
+                return $this->redirectToRoute('dashboard_user', [], Response::HTTP_SEE_OTHER);
+                // throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+            }
 
     // fonction  pour pour afficher le dashboard
         #[Route('/admin', name: 'app_project')]

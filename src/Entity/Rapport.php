@@ -29,6 +29,7 @@ class Rapport
     #[Groups(['show_product', 'show_post'])]
     private ?string $texte_rapport = null;
 
+    #[Groups(['show_product', 'show_post'])]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $rapport_date = null;
 

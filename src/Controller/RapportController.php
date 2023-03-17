@@ -57,15 +57,7 @@ class RapportController extends AbstractController
                 ], 200, [], ['groups' => ['show_product']]
                 );
             }
-            // $data = $this->repoRapport->findAll();
-            // // // return $this->json($data);
-            // $catJson = $this->serializer->serialize($data, 'json');
-            // return new JsonResponse($catJson, Response::HTTP_OK, [], true);
-            // // // return $this->render('admin/user/index.html.twig', [
-            // // //     'projects' => $this->repoRapport->findAll(),
-            // // // ]);
         }
-
 
 // fonction  pour insertion de données dans la db
     #[Route('api/rapport/add', name: 'create_rapport', methods: ["POST"])]
@@ -82,7 +74,7 @@ class RapportController extends AbstractController
         $rapport->setTitreRapport($request_data["titre_rapport"]);
         $user = $this->security->getUser();
         // $user = $this->userRepo->findOneById($request_data["user_id"]);$
-        $rapport->setRapportDate(new DateTime($request_data["rapport_date"]));
+        $rapport->setRapportDate(new \DateTime($request_data["rapport_date"]));
         $rapport->setUtilisateur($user);
         // $rapport->setUtilisateur($this->getUser());
         $this->repoRapport->save($rapport, true);
@@ -90,11 +82,27 @@ class RapportController extends AbstractController
         return $this->json([
             'code' => 200 ,
             'message' => 'Emreg Ok'
-        ]);
-
-         
+        ]);   
     }
 
+
+    #[Route('rapport/edit/{id}', name: 'rapports_update', methods: ["DELETE", "POST","GET"])]
+
+        public function edit(Request $request, RapportRepository $repoRapport): Response
+        {
+            $form = $this->createForm(ProjectType::class, $repoRapport);
+            $form->handleRequest($request);
+    
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+    
+                return $this->redirectToRoute('project_index', [], Response::HTTP_SEE_OTHER);
+            }
+            return $this->renderForm('project/edit.html.twig', [
+                'project' => $repoRapport,
+                'form' => $form,
+            ]);
+        }
      ///fonction pour une suppression 
      #[Route('rapport/delete/{id}', name: 'rapports_delete', methods: ["DELETE", "POST","GET"])]
      public function deleteRapport($id): Response

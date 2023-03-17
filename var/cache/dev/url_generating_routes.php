@@ -7,6 +7,7 @@ return [
     'create_rapport' => [[], ['_controller' => 'App\\Controller\\RapportController::insertUser'], [], [['text', '/api/rapport/add']], [], [], []],
     'rapports_delete' => [['id'], ['_controller' => 'App\\Controller\\RapportController::deleteRapport'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/rapport/delete']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
+    'logout' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::logout'], [], [['text', '/logout']], [], [], []],
     'app_project' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::index'], [], [['text', '/admin']], [], [], []],
     'dashboard_user' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::dashboard_user'], [], [['text', '/dashboard_users']], [], [], []],
     'app_utilisateur' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::insertUser'], [], [['text', '/user/add']], [], [], []],

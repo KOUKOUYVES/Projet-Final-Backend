@@ -156,14 +156,18 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                                 alt=\"settings\">
                             <h3> Settings</h3>
                         </div> -->
-    
-                        <div class=\"nav-option logout\">
-                            <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png\"
-                                class=\"nav-img\"
-                                alt=\"logout\">
-                            <h3>Logout</h3>
-                        </div>
-    
+                        <a href=\"";
+        // line 104
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+        echo "\" style=\"color: #000000; text-decoration: none;\" >
+                            <div class=\"nav-option logout\">
+                                <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png\"
+                                    class=\"nav-img\"
+                                    alt=\"logout\">
+                                <h3>Logout</h3>
+                            </div>
+                        </a>
+                        
                     </div>
                 </nav>
             </div>
@@ -230,9 +234,9 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                     </div> -->
 
                     ";
-        // line 177
+        // line 178
         $this->displayBlock('test', $context, $blocks);
-        // line 180
+        // line 181
         echo "<!--     
                     <div class=\"report-body\">
                         <div class=\"report-topic-heading\">
@@ -312,15 +316,15 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
             </div>
         </div>
         ";
-        // line 258
+        // line 259
         $this->displayBlock('body', $context, $blocks);
-        // line 261
+        // line 262
         echo "
 
         ";
-        // line 263
+        // line 264
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 267
+        // line 268
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("asset/script.js"), "html", null, true);
         echo "\"></script>
@@ -363,14 +367,14 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     }
 
-    // line 177
+    // line 178
     public function block_test($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "test"));
 
-        // line 178
+        // line 179
         echo "            
                     ";
         
@@ -378,14 +382,14 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     }
 
-    // line 258
+    // line 259
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 259
+        // line 260
         echo "        
         ";
         
@@ -393,17 +397,17 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     }
 
-    // line 263
+    // line 264
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 264
+        // line 265
         echo "        <script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>
             ";
-        // line 265
+        // line 266
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
         ";
@@ -424,7 +428,7 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     public function getDebugInfo()
     {
-        return array (  407 => 265,  404 => 264,  397 => 263,  389 => 259,  382 => 258,  374 => 178,  367 => 177,  357 => 11,  350 => 10,  337 => 5,  324 => 267,  322 => 263,  318 => 261,  316 => 258,  236 => 180,  234 => 177,  117 => 63,  65 => 14,  62 => 13,  60 => 10,  57 => 9,  51 => 5,  45 => 1,);
+        return array (  411 => 266,  408 => 265,  401 => 264,  393 => 260,  386 => 259,  378 => 179,  371 => 178,  361 => 11,  354 => 10,  341 => 5,  328 => 268,  326 => 264,  322 => 262,  320 => 259,  240 => 181,  238 => 178,  161 => 104,  117 => 63,  65 => 14,  62 => 13,  60 => 10,  57 => 9,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -532,14 +536,15 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                                 alt=\"settings\">
                             <h3> Settings</h3>
                         </div> -->
-    
-                        <div class=\"nav-option logout\">
-                            <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png\"
-                                class=\"nav-img\"
-                                alt=\"logout\">
-                            <h3>Logout</h3>
-                        </div>
-    
+                        <a href=\"{{ path('logout') }}\" style=\"color: #000000; text-decoration: none;\" >
+                            <div class=\"nav-option logout\">
+                                <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png\"
+                                    class=\"nav-img\"
+                                    alt=\"logout\">
+                                <h3>Logout</h3>
+                            </div>
+                        </a>
+                        
                     </div>
                 </nav>
             </div>
