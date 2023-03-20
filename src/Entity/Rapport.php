@@ -14,7 +14,7 @@ class Rapport
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['show_rapport', 'show_rapport'])]
+    #[Groups(['show_product', 'show_post'])]
     private ?int $id = null;
 
     #[Groups(['show_product', 'show_post'])]

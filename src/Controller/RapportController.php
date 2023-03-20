@@ -48,7 +48,6 @@ class RapportController extends AbstractController
     #[Route('all_rapport', name: 'dashboard_user_rapport', methods: ["GET"]) ]
         public function dashboard_user(): jsonResponse
         {
-
             {
                 $cats = $this->repoRapport->findAll();
                 return $this->json([
@@ -58,6 +57,36 @@ class RapportController extends AbstractController
                 );
             }
         }
+
+
+        // fonction  pour afficher tous les utilisateur
+    #[Route('recent/rapport', name: 'rapport_rapport_user', methods: ["GET"]) ]
+    public function recent_rapport(): jsonResponse
+    {
+        {
+            $cats = $this->repoRapport->findAll();            
+            return $this->json([
+                "code" => 200,
+                "data" => $cats
+            ], 200, [], ['groups' => ['show_product']]
+            );
+        }
+    }
+
+
+        // fonction  pour afficher un seul rapport
+    #[Route('find/rapport/{id}', name: 'find_user_rapport', methods: ["GET"]) ]
+    public function findRapport($id): jsonResponse
+    {
+        {
+            $cats = $this->repoRapport->find($id);
+            return $this->json([
+                "code" => 200,
+                "data" => $cats
+            ], 200, [], ['groups' => ['show_product']]
+            );
+        }
+    }
 
 // fonction  pour insertion de données dans la db
     #[Route('api/rapport/add', name: 'create_rapport', methods: ["POST"])]
@@ -73,7 +102,6 @@ class RapportController extends AbstractController
         $rapport->setTexteRapport($request_data["texte_rapport"]);
         $rapport->setTitreRapport($request_data["titre_rapport"]);
         $user = $this->security->getUser();
-        // $user = $this->userRepo->findOneById($request_data["user_id"]);$
         $rapport->setRapportDate(new \DateTime($request_data["rapport_date"]));
         $rapport->setUtilisateur($user);
         // $rapport->setUtilisateur($this->getUser());
@@ -86,29 +114,37 @@ class RapportController extends AbstractController
     }
 
 
-    #[Route('rapport/edit/{id}', name: 'rapports_update', methods: ["DELETE", "POST","GET"])]
+    #[Route('api/rapport/edit/{id}', name: 'rapports_update', methods: ["PUT"])]
 
-        public function edit(Request $request, RapportRepository $repoRapport): Response
+        public function edit($id, Request $request): jsonResponse
         {
-            $form = $this->createForm(ProjectType::class, $repoRapport);
-            $form->handleRequest($request);
-    
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->getDoctrine()->getManager()->flush();
-    
-                return $this->redirectToRoute('project_index', [], Response::HTTP_SEE_OTHER);
-            }
-            return $this->renderForm('project/edit.html.twig', [
-                'project' => $repoRapport,
-                'form' => $form,
-            ]);
+            // get user current
+            $rapport = $this->repoRapport->findOneById($id);
+        // get data request
+        $request_data = json_decode($request->getContent(), true);
+        $rapport->setTexteRapport($request_data["texte_rapport"]);
+        $rapport->setTitreRapport($request_data["titre_rapport"]);
+        $rapport->setRapportDate(new \DateTime($request_data["rapport_date"]));
+        $user = $this->security->getUser();
+        $rapport->setUtilisateur($user);
+        $this->repoRapport->save($rapport, true);
+        return $this->json([
+                'code' => 200,
+                'data' => $rapport
+            ], 200, [], ['groups' => 'show_user']
+        );
         }
      ///fonction pour une suppression 
-     #[Route('rapport/delete/{id}', name: 'rapports_delete', methods: ["DELETE", "POST","GET"])]
-     public function deleteRapport($id): Response
+     #[Route('rapport/delete/{id}', name: 'rapports_delete', methods: ["DELETE","GET"])]
+     public function deleteRapport($id): jsonResponse
      {
          $monRapport = $this->repoRapport->findOneById($id);
          $this->repoRapport->remove($monRapport, true);
-        return $this->redirectToRoute('dashboard_user', [], Response::HTTP_SEE_OTHER);
+         return $this->json([
+            'code' => 200,
+            'data' => "rapport supprimer avec succès"
+        ], 200, [], ['groups' => 'show_user']
+        );
+        // return $this->redirectToRoute('dashboard_user', [], Response::HTTP_SEE_OTHER);
      }
 }

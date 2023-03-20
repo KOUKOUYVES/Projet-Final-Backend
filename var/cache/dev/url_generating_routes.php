@@ -4,7 +4,10 @@
 
 return [
     'dashboard_user_rapport' => [[], ['_controller' => 'App\\Controller\\RapportController::dashboard_user'], [], [['text', '/all_rapport']], [], [], []],
+    'rapport_rapport_user' => [[], ['_controller' => 'App\\Controller\\RapportController::recent_rapport'], [], [['text', '/recent/rapport']], [], [], []],
+    'find_user_rapport' => [['id'], ['_controller' => 'App\\Controller\\RapportController::findRapport'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/find/rapport']], [], [], []],
     'create_rapport' => [[], ['_controller' => 'App\\Controller\\RapportController::insertUser'], [], [['text', '/api/rapport/add']], [], [], []],
+    'rapports_update' => [['id'], ['_controller' => 'App\\Controller\\RapportController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/rapport/edit']], [], [], []],
     'rapports_delete' => [['id'], ['_controller' => 'App\\Controller\\RapportController::deleteRapport'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/rapport/delete']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\UtilisateurController::logout'], [], [['text', '/logout']], [], [], []],
