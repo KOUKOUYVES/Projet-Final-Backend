@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Project index{% endblock %}
+ 
+{% block test %}
+<link rel="stylesheet" href="style.css">
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div id="invoice">
+                <div class="toolbar hidden-print">
+                    <div class="text-end">
+                        <!-- <button type="button" onclick="print()" class="btn btn-dark"><i class="fa fa-print"></i> Print</button> -->
+                       <a href="{{ path('dashboard_user_rapports')}}"><button type="button" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Retour</button></a> 
+                    </div>
+                    <hr>
+                </div>
+
+
+                <div class="invoice overflow-auto" >
+                    <div style="min-width: 600px">
+                        <!-- <header>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="javascript:;">
+    												<img src="assets/images/logo-icon.png" width="80" alt="">
+												</a>
+                                </div>
+                                <div class="col company-details">
+                                    <h2 class="name">
+                                        <a target="_blank" href="javascript:;">
+									Arboshiki
+									</a>
+                                    </h2>
+                                    <div>455 Foggy Heights, AZ 85004, US</div>
+                                    <div>(123) 456-789</div>
+                                    <div>company@example.com</div>
+                                </div>
+                            </div>
+                        </header> -->
+                        <main id="printr">
+                            <div class="row contacts">
+                                <div class="col invoice-to">
+                                    <div class="text-gray-light">Nom et Prénom:</div>
+                                    <h2 class="to">{{rapports_print.utilisateur.firstname}} {{rapports_print.utilisateur.lastname}}</h2>
+                                    <div class="address">Email</div>
+                                    <div class="email"><a href="mailto:john@example.com">{{rapports_print.utilisateur.email}}</a>
+                                    </div>
+                                </div>
+                                <div class="col invoice-details">
+                                    <h6 class="invoice-id">Date de Rapport</h6>
+                                    <div class="date">{{rapports_print.rapportDate|date('d-m-Y')}}</div>
+                                    <!-- <div class="date">Due Date: 30/10/2018</div> -->
+                                </div>
+                            </div>
+                            <hr><hr>
+                            <!-- <div class="thanks">Thank you!</div> -->
+                            <div class="notices">
+                                <div><h4> Contenu de Rapport:</h4></div>
+                                <div class="notice">{{rapports_print.texteRapport}}</div>
+                            </div>
+                        </main>
+                        <!-- <footer>Invoice was created on a computer and is valid without the signature and seal.</footer> -->
+                    </div>
+                    <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                    <div></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+{% endblock %}

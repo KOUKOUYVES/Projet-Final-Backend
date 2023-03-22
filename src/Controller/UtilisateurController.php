@@ -13,8 +13,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UtilisateurController extends AbstractController
 {
-
-
         
     private $userRepo;
     private $passwordHasher;
@@ -40,7 +38,7 @@ class UtilisateurController extends AbstractController
             }
 
     // fonction  pour afficher tous les utilisateur
-    #[Route('/dashboard_users', name: 'dashboard_user', methods: ["GET"]) ]
+    #[Route('/all/users', name: 'gestion/users', methods: ["GET"]) ]
         public function dashboard_user(): Response
         {
             return $this->render('admin/user/index.html.twig', [
@@ -83,7 +81,7 @@ class UtilisateurController extends AbstractController
      {
          $monUser = $this->userRepo->findOneById($id);
          $this->userRepo->remove($monUser, true);
-        return $this->redirectToRoute('dashboard_user', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('gestion/users', [], Response::HTTP_SEE_OTHER);
      }
 
 }

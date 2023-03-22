@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Rapport;
-
 use App\Repository\RapportRepository;
 use App\Repository\UtilisateurRepository;
 use DateTime;
@@ -33,8 +32,6 @@ class RapportController extends AbstractController
         $this->security = $security;
     }
 
-
-
     // fonction  pour pour afficher le dashboard
         #[Route('/admin', name: 'app_project')]
             public function index(): Response
@@ -44,20 +41,38 @@ class RapportController extends AbstractController
                 ]);
             }
 
-    // fonction  pour afficher tous les utilisateur
-    #[Route('all_rapport', name: 'dashboard_user_rapport', methods: ["GET"]) ]
+   // fonction  pour afficher tous les rapport des utilisateurs
+    #[Route('all_rapport_admin', name: 'dashboard_user_rapport', methods: ["GET"]) ]
         public function dashboard_user(): jsonResponse
         {
             {
-                $cats = $this->repoRapport->findAll();
+                $rapports = $this->repoRapport->findAll();
                 return $this->json([
                     "code" => 200,
-                    "data" => $cats
+                    "data" => $rapports
                 ], 200, [], ['groups' => ['show_product']]
                 );
             }
         }
 
+            // // fonction  pour afficher tous les rapports cotés admin
+            #[Route('all_rapport_admins', name: 'dashboard_user_rapports', methods: ["GET"]) ]
+            public function dashboard_user_rapport(): Response
+            {
+                    return $this->render('admin/rapport/index.html.twig', [
+                    'rapports' => $this->repoRapport->findAll(),
+                ]);
+            }
+
+             // // fonction  pour imprimer un rapport
+             #[Route('all_rapport_admin_show/{id}', name: 'dashboard_user_rapports_show', methods: ["GET"]) ]
+             public function dashboard_user_rapport_print($id): Response
+             {
+                     return $this->render('admin/rapport/show.html.twig', [
+                     'rapports_print' => $this->repoRapport->find($id),
+                 ]);
+             }
+ 
 
         // fonction  pour afficher tous les utilisateur
     #[Route('recent/rapport', name: 'rapport_rapport_user', methods: ["GET"]) ]
@@ -73,8 +88,7 @@ class RapportController extends AbstractController
         }
     }
 
-
-        // fonction  pour afficher un seul rapport
+    // fonction  pour afficher un seul rapport
     #[Route('find/rapport/{id}', name: 'find_user_rapport', methods: ["GET"]) ]
     public function findRapport($id): jsonResponse
     {
@@ -146,5 +160,14 @@ class RapportController extends AbstractController
         ], 200, [], ['groups' => 'show_user']
         );
         // return $this->redirectToRoute('dashboard_user', [], Response::HTTP_SEE_OTHER);
+     }
+
+
+     #[Route('rapport/delete/admin/{id}', name: 'rapports_delete_admin', methods: ["DELETE","GET"])]
+     public function deleteRapportAdmin($id):Response
+     {
+         $monRapport = $this->repoRapport->findOneById($id);
+         $this->repoRapport->remove($monRapport, true);
+        return $this->redirectToRoute('dashboard_user_rapports', [], Response::HTTP_SEE_OTHER);
      }
 }
