@@ -34,8 +34,8 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.contact }}</td>
                         <td>
-                                <a class="btn btn-outline-info" type="button" href="">Show</a>
-                                <a class="btn btn-outline-success" type="button" href="">Edit</a>
+                                <a class="btn btn-outline-info disabled" type="button" href="">Show</a>
+                                <a class="btn btn-outline-success disabled" type="button" href="">Edit</a>
                                 <a type="button" onclick="return confirmRegistre(this)" class="btn btn-outline-danger" href="{{ path('app_utilisateur_delete', {id: user.id}) }}">Delete</a>
                         </td>
                     </tr>

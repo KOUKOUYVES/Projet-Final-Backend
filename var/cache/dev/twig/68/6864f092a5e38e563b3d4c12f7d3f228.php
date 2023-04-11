@@ -86,6 +86,7 @@ class __TwigTemplate_bc4dc1bc69ca0952e90eb2a85b00c33a extends Template
                     <tr>
                         <th>#</th>
                         <th>Nom</th>
+                        <th>Prénom</th>
                         <th>UserName</th>
                         <th>Contact</th>
                         <th>Email</th>
@@ -95,53 +96,57 @@ class __TwigTemplate_bc4dc1bc69ca0952e90eb2a85b00c33a extends Template
                         <th width=\"330px\">Action</th>
                     </tr>
                     ";
-        // line 27
+        // line 28
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["rapports"]) || array_key_exists("rapports", $context) ? $context["rapports"] : (function () { throw new RuntimeError('Variable "rapports" does not exist.', 27, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["rapports"]) || array_key_exists("rapports", $context) ? $context["rapports"] : (function () { throw new RuntimeError('Variable "rapports" does not exist.', 28, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["rapport"]) {
-            // line 28
+            // line 29
             echo "                    <tr>
                         <td>";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 29), "html", null, true);
-            echo "</td>
-                        <td>";
             // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 30), "firstname", [], "any", false, false, false, 30), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 30), "html", null, true);
             echo "</td>
                         <td>";
             // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 31), "username", [], "any", false, false, false, 31), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 31), "firstname", [], "any", false, false, false, 31), "html", null, true);
             echo "</td>
                         <td>";
             // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 32), "contact", [], "any", false, false, false, 32), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 32), "lastname", [], "any", false, false, false, 32), "html", null, true);
             echo "</td>
                         <td>";
             // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 33), "email", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 33), "username", [], "any", false, false, false, 33), "html", null, true);
             echo "</td>
                         <td>";
             // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "titreRapport", [], "any", false, false, false, 34), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 34), "contact", [], "any", false, false, false, 34), "html", null, true);
             echo "</td>
                         <td>";
             // line 35
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "rapportDate", [], "any", false, false, false, 35), "m/d/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rapport"], "utilisateur", [], "any", false, false, false, 35), "email", [], "any", false, false, false, 35), "html", null, true);
             echo "</td>
                         <td>";
             // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "texteRapport", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "titreRapport", [], "any", false, false, false, 36), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 37
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "rapportDate", [], "any", false, false, false, 37), "m/d/Y"), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rapport"], "texteRapport", [], "any", false, false, false, 38), "html", null, true);
             echo "</td>
                         <td>
                                 <a class=\"btn btn-outline-info\" type=\"button\" href=\"";
-            // line 38
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dashboard_user_rapports_show", ["id" => twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dashboard_user_rapports_show", ["id" => twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 40)]), "html", null, true);
             echo "\">Show</a>
                                 <a class=\"btn btn-outline-success disabled\" type=\"button\"  href=\"\">Print</a>
                                 <a type=\"button\" onclick=\"return confirmRegistre(this)\" class=\"btn btn-outline-danger\" href=\"";
-            // line 40
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rapports_delete_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 40)]), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rapports_delete_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["rapport"], "id", [], "any", false, false, false, 42)]), "html", null, true);
             echo "\">Delete</a>
                         </td>
                     </tr>
@@ -150,7 +155,7 @@ class __TwigTemplate_bc4dc1bc69ca0952e90eb2a85b00c33a extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rapport'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 46
         echo "                </table>
             </div>
         </div>
@@ -198,7 +203,7 @@ function confirmRegistre(el) {
 
     public function getDebugInfo()
     {
-        return array (  154 => 44,  144 => 40,  139 => 38,  134 => 36,  130 => 35,  126 => 34,  122 => 33,  118 => 32,  114 => 31,  110 => 30,  106 => 29,  103 => 28,  99 => 27,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  159 => 46,  149 => 42,  144 => 40,  139 => 38,  135 => 37,  131 => 36,  127 => 35,  123 => 34,  119 => 33,  115 => 32,  111 => 31,  107 => 30,  104 => 29,  100 => 28,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -221,6 +226,7 @@ function confirmRegistre(el) {
                     <tr>
                         <th>#</th>
                         <th>Nom</th>
+                        <th>Prénom</th>
                         <th>UserName</th>
                         <th>Contact</th>
                         <th>Email</th>
@@ -233,6 +239,7 @@ function confirmRegistre(el) {
                     <tr>
                         <td>{{ rapport.id }}</td>
                         <td>{{ rapport.utilisateur.firstname }}</td>
+                        <td>{{ rapport.utilisateur.lastname }}</td>
                         <td>{{ rapport.utilisateur.username }}</td>
                         <td>{{ rapport.utilisateur.contact }}</td>
                         <td>{{ rapport.utilisateur.email }}</td>

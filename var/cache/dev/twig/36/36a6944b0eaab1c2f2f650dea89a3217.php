@@ -127,8 +127,8 @@ class __TwigTemplate_ac775a81af00864c5f865e10c430a37e extends Template
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "contact", [], "any", false, false, false, 35), "html", null, true);
             echo "</td>
                         <td>
-                                <a class=\"btn btn-outline-info\" type=\"button\" href=\"\">Show</a>
-                                <a class=\"btn btn-outline-success\" type=\"button\" href=\"\">Edit</a>
+                                <a class=\"btn btn-outline-info disabled\" type=\"button\" href=\"\">Show</a>
+                                <a class=\"btn btn-outline-success disabled\" type=\"button\" href=\"\">Edit</a>
                                 <a type=\"button\" onclick=\"return confirmRegistre(this)\" class=\"btn btn-outline-danger\" href=\"";
             // line 39
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_utilisateur_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 39)]), "html", null, true);
@@ -229,8 +229,8 @@ function confirmRegistre(el) {
                         <td>{{ user.email }}</td>
                         <td>{{ user.contact }}</td>
                         <td>
-                                <a class=\"btn btn-outline-info\" type=\"button\" href=\"\">Show</a>
-                                <a class=\"btn btn-outline-success\" type=\"button\" href=\"\">Edit</a>
+                                <a class=\"btn btn-outline-info disabled\" type=\"button\" href=\"\">Show</a>
+                                <a class=\"btn btn-outline-success disabled\" type=\"button\" href=\"\">Edit</a>
                                 <a type=\"button\" onclick=\"return confirmRegistre(this)\" class=\"btn btn-outline-danger\" href=\"{{ path('app_utilisateur_delete', {id: user.id}) }}\">Delete</a>
                         </td>
                     </tr>

@@ -40,7 +40,6 @@ class RapportController extends AbstractController
                     'controller_name' => 'UtilisateurController',
                 ]);
             }
-
    // fonction  pour afficher tous les rapport des utilisateurs
     #[Route('all_rapport_admin', name: 'dashboard_user_rapport', methods: ["GET"]) ]
         public function dashboard_user(): jsonResponse

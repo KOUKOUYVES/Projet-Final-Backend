@@ -138,7 +138,7 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                             </div>
                         </a>
                         
-                        <a href=\"";
+                        <!-- <a href=\"";
         // line 83
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
         echo "\" style=\"color: #000000; text-decoration: none;\" >
@@ -148,7 +148,7 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                                     alt=\"logout\">
                                 <h3>Logout</h3>
                             </div>
-                        </a>
+                        </a> -->
                         
                     </div>
                 </nav>
@@ -218,7 +218,7 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                     ";
         // line 157
         $this->displayBlock('test', $context, $blocks);
-        // line 160
+        // line 159
         echo "<!--     
                     <div class=\"report-body\">
                         <div class=\"report-topic-heading\">
@@ -298,20 +298,19 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
             </div>
         </div>
         ";
-        // line 238
+        // line 237
         $this->displayBlock('body', $context, $blocks);
-        // line 241
+        // line 240
         echo "
 
         ";
-        // line 243
+        // line 242
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 247
+        // line 246
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("asset/script.js"), "html", null, true);
         echo "\"></script>
     </body>
-    <footer>hghgghggjgj</footer>
 </html>
 ";
         
@@ -357,21 +356,20 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "test"));
 
         // line 158
-        echo "            
-                    ";
+        echo "                    ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
     }
 
-    // line 238
+    // line 237
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 239
+        // line 238
         echo "        
         ";
         
@@ -379,17 +377,17 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     }
 
-    // line 243
+    // line 242
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 244
+        // line 243
         echo "        <script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>
             ";
-        // line 245
+        // line 244
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
         ";
@@ -410,7 +408,7 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
 
     public function getDebugInfo()
     {
-        return array (  393 => 245,  390 => 244,  383 => 243,  375 => 239,  368 => 238,  360 => 158,  353 => 157,  343 => 11,  336 => 10,  323 => 5,  310 => 247,  308 => 243,  304 => 241,  302 => 238,  222 => 160,  220 => 157,  143 => 83,  130 => 73,  117 => 63,  65 => 14,  62 => 13,  60 => 10,  57 => 9,  51 => 5,  45 => 1,);
+        return array (  391 => 244,  388 => 243,  381 => 242,  373 => 238,  366 => 237,  359 => 158,  352 => 157,  342 => 11,  335 => 10,  322 => 5,  310 => 246,  308 => 242,  304 => 240,  302 => 237,  222 => 159,  220 => 157,  143 => 83,  130 => 73,  117 => 63,  65 => 14,  62 => 13,  60 => 10,  57 => 9,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -497,14 +495,14 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                             </div>
                         </a>
                         
-                        <a href=\"{{ path('logout') }}\" style=\"color: #000000; text-decoration: none;\" >
+                        <!-- <a href=\"{{ path('logout') }}\" style=\"color: #000000; text-decoration: none;\" >
                             <div class=\"nav-option logout\">
                                 <img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png\"
                                     class=\"nav-img\"
                                     alt=\"logout\">
                                 <h3>Logout</h3>
                             </div>
-                        </a>
+                        </a> -->
                         
                     </div>
                 </nav>
@@ -572,7 +570,6 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
                     </div> -->
 
                     {% block test %}
-            
                     {% endblock %}
 <!--     
                     <div class=\"report-body\">
@@ -663,7 +660,6 @@ class __TwigTemplate_6c89d1c69f1ef6f488c9cc6a9acd3b4f extends Template
         {% endblock %}
         <script src=\"{{ asset('asset/script.js') }}\"></script>
     </body>
-    <footer>hghgghggjgj</footer>
 </html>
 ", "base.html.twig", "/home/armand/Bureau/ProjetFinal/ProjetBackend/templates/base.html.twig");
     }
